@@ -1,0 +1,71 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ── Virtual Environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+ENV/
+env/
+
+# ── Distribution / Packaging ──────────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
+# ── Environment Variables / Secrets ───────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS Generated ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── PyTorch / Whisper Model Cache ─────────────────────────────────────────────
+*.pt
+*.bin
+*.safetensors
+models/
+
+# ── ChromaDB Local Store ──────────────────────────────────────────────────────
+chroma_db/
+chroma/
+
+# ── Audio / Video Downloads ───────────────────────────────────────────────────
+*.mp3
+*.mp4
+*.wav
+*.webm
+*.m4a
+*.ogg
+*.flac
+downloads/
+audio/
+video/
+
+# ── Generated Outputs ────────────────────────────────────────────────────────
+output/
+exports/
+*.pdf
+
+# ── Jupyter Notebooks (checkpoints) ──────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Streamlit ─────────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
