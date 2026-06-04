@@ -30,8 +30,8 @@ def download_youtube_audio(url:str)->str:
 
     
 # //converting file to wav using pydub
-data= download_youtube_audio("https://www.youtube.com/shorts/0E2MogEpNx0")
-print(f"Downloaded to: {data}")
+# data= download_youtube_audio("https://www.youtube.com/shorts/0E2MogEpNx0")
+# print(f"Downloaded to: {data}")
 
 
 def convert_to_wav(input_path:str)->str:
@@ -44,7 +44,7 @@ def convert_to_wav(input_path:str)->str:
     return output_path
 
 
-print(convert_to_wav(data))
+# print(convert_to_wav(data))
 
 
 # //creating chunks of audio
