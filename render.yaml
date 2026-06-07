@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ai-video-summarizer-api
+    env: docker
+    region: oregon # Or your preferred region
+    plan: starter # Starter plan is recommended for the 2GB+ RAM required by Whisper
+    healthCheckPath: /api/health
+    envVars:
+      - key: MISTRAL_API_KEY
+        sync: false
+      - key: SARVAM_API_KEY
+        sync: false
+      - key: WHISPER_MODEL
+        value: small

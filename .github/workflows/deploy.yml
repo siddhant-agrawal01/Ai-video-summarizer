@@ -1,0 +1,40 @@
+name: CI/CD — Build & Deploy to Render
+
+# Trigger: runs on every push to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # ── Job 1: Build & validate the Docker image ────────────────────────────────
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (smoke test — no push)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false   # Just validate the build; Render handles the actual deploy
+
+  # ── Job 2: Trigger Render deploy ────────────────────────────────────────────
+  deploy:
+    name: Deploy to Render
+    runs-on: ubuntu-latest
+    needs: build           # Only deploy if the build job succeeded
+
+    steps:
+      - name: Trigger Render deploy hook
+        run: |
+          curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" \
+            --request POST \
+            --fail \
+            --show-error
