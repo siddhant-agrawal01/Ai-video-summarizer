@@ -13,11 +13,7 @@ RUN apt-get update && \
 COPY Requirements.txt .
 
 # Install Python dependencies
-# We use --no-cache-dir to keep the image size small
 RUN pip install --no-cache-dir -r Requirements.txt
-
-# Install uvicorn separately if it's not in Requirements.txt
-RUN pip install --no-cache-dir uvicorn
 
 # Copy the rest of the application code
 COPY . .
